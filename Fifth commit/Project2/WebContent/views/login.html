@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	background-color: #0059b3;
+	size: 20px;
+}
+
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+.cntainer {
+	padding: 16px;
+	/*border: 12000px solid red; */
+	border: 1px solid #ccc;
+	size: 20px;
+	border-width: 80%;
+	border-height: 80%;
+}
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+
+
+		<div class="col-lg-8 col-md-offset-3">
+			<div class="row">
+				<div class="col-lg-8">
+					<h1>Login</h1>
+					<br>
+					<div>
+						<div>
+							<span style="color: red">{{error.message}}</span>
+						</div>
+						<label>UserName:</label> <input type="text"
+							placeholder="Enter Username" required="required"
+							ng-model="user.username">
+					</div>
+					<div>
+						<label>Password:</label> <input type="password"
+							placeholder="Enter Password" required="required"
+							ng-model="user.password">
+					</div>
+					<div class="col-lg-4 col-md-offset-3">
+						<input type="submit" span value="Login" ng-click="login()">
+					</div>
+					<!--   	<a hfer="#/registration">New User?</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
