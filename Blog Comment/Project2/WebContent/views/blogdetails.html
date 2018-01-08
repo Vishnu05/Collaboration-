@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.container {
+	max-width: 750px;
+	background: #FAFAFA;
+	padding: 30px;
+	margin: 100px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 20px;
+	border: 6px solid #305A72;
+}
+
+body {
+	/* The image used */
+	background-image:
+		url("https://static.pexels.com/photos/196667/pexels-photo-196667.jpeg");
+	/* Full height */
+	height: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+</style>
+</head>
+<body>
+
+	<h3>Approved Blogpost</h3>
+	<div class="container">
+		<div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1>Blog Title : {{blog.blogtitle}}</h1>
+					<br> <b>Created By: &nbsp;</b>{{blog.postedBy.firstname}}<br>
+					<b>Created On:</b>{{blog.postedOn | date :'yyyy:MM:dd'}}s
+				</div>
+				<div class="panel-body">
+					<label>Blog Content:</label> {{blog.blogcontent}}
+				</div>
+				<div>
+					<a> <span class="glyphicon glyphicon-hand-right fa-3x"></span>
+					</a>
+				</div>
+
+				<b> Number of likes</b> {{blog.likes}}
+				<div ng-show="likeds">
+					<span class="glyphicon glyphicon-thumbs-up" style="color: blue"
+						ng-click="updatelikes()"></span>
+				</div>
+				<div ng-show="!liked">
+					<span class="glyphicon glyphicon-thumbs-up" style="color: black"
+						ng-click="updatelikes()"></span>
+				</div>
+
+<div class="">
+	<textarea rows="4" cols="15" ng-model="commentedText"></textarea>
+	<br>
+	<!--  insert into blogcomment values (?,blogpostid,username,commenttext,commentedon) -->
+	<input type="submit" ng-click="addComment()" value="POST COMMENT">
+</div>
+
+	<div>
+	 <b> <a href="" ng-click="showComments()">{{blog.blogComments.length}} comments</a></b>
+		<ul ng-show="showComment" style="list-style:none">
+			<li
+				ng-repeat="comment in blog.blogComment | orderBy:'-commentedOn'">
+				{{comment.commentedText}}<br> <strong>Commented By </strong>
+				{{comment.commentedBy.username}} &nbsp; <strong>Commented
+					On</strong> {{comment.commentedOn | date : 'medium'}}
+			</li>
+		</ul>
+	</div>
+
+
+
+				<a></a> <br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
