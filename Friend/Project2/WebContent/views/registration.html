@@ -1,0 +1,115 @@
+<html>
+<head>
+
+<style>
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type=email] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	background-color: #0059b3;
+	size: 20px;
+}
+ h1{
+    background: #bf80ff;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;	
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+
+
+.container{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 800px;
+	height: 850px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+body {
+    /* The image used */
+    background-image: url("https://static.pexels.com/photos/132037/pexels-photo-132037.jpeg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+</style>
+</head>
+<body>
+	<div class="container">
+	 
+<h1>Registration Form</h1>
+		<div class="col-lg-8 col-md-offset-3">
+			<div class="row">
+				<div class="col-lg-8">
+				<br><br>
+					<div>
+				<div> 	<span style="color: red" ng-if="error.code==1">{{error.message}}</span></div>
+						<label>UserName:</label> <input type="text" placeholder="Enter UserName" ng-model="user.username">
+						<div> <span style="color: red" ng-if="error.code==2">{{error.message}}</span></div>
+					</div>
+					<div>
+						<label>Password:</label> <input type="password" placeholder=" Enter Password"ng-model="user.password">
+					</div>
+					<div>
+						<label>FirstName : </label><input type="text" placeholder="Enter FirstName" ng-model="user.firstname">
+					</div>
+					<div>
+						<label>LastName :</label> <input type="text" placeholder="Enter LastName" ng-model="user.lastname">
+					</div>
+					<div>
+						<label>Email :</label> <input type="email" placeholder="Enter emailId" ng-model="user.email"> <div> <span
+							style="color: red" ng-if="error.code==3">{{error.message}}</span></div>
+					</div>
+					<div>
+						<label>PhoneNumber:</label> <input type="text" placeholder="Enter PhoneNumber" ng-model="user.phonenumber">
+
+					</div>
+					<div>
+					<label>Gender:</label><br>
+					<input type="radio" ng-model="user.gender" value="Male" >Male <input type="radio" ng-model="user.gender" value="Female">Female
+					</div>
+					<div>
+						<label>Select Role:</label><br> <input type="radio" value="STUDENT"
+							ng-model="user.role">Student <input type="radio"
+							value="EMPLOYEE" ng-model="user.role"> Employee <input
+							type="radio" value="ALUMNI" ng-model="user.role"> Alumni
+						<input type="submit" value="Register" ng-click="registerUser()">
+						<!-- 1 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
