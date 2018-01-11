@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {
+    /* The image used */
+    background-image: url("https://stephvandermeulen.com/wp-content/uploads/2014/10/quotescover-JPG-60.jpg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    max-width: 750px;
+
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 100px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    border: 6px solid #305A72;
+}
+
+
+</style>
+</head>
+<div class="container">
+  <div ng-show="currentUser.role=='ADMIN'">
+	<h3>List Of Blogs waiting for approval</h3>
+	<div ng-if="blogsWaitingForApproval.length==0">No blogposts available</div>
+<table ng-show="blogsWaitingForApproval.length>0" class="table table-striped table-bordered table-hover table-condensed">
+		<thead>
+			<tr>
+				<td>Blog Title</td>
+				<td>Author</td>
+				<td>Posted On</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="blog in blogsWaitingForApproval">
+				<td><a href="#/admin/getblog/{{blog.id}}">{{blog.blogtitle}}</a></td>
+				<td>{{blog.postedBy.firstname}}&nbsp;{{blog.postedBy.lastname}}</td>
+				<td>{{blog.postedOn | date : 'yyyy:MM:dd'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+  
+<br>
+
+<div>
+	<h3>List of blogs approved</h3>
+	<div ng-if="blogsApproved.length==0">No Approved blogposts available</div>
+	<table ng-show="blogsApproved.length>0" class="table table-striped table-bordered table-hover table-condensed">
+		<thead>
+			<tr>
+				<td>Blog Title</td>
+				<td>Author</td>
+				<td>Posted On</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="blog in blogsApproved | orderBy: '-postedOn'">
+				<td><a href="#/getblog/{{blog.id}}">{{blog.blogtitle}}</a></td>
+				<td>{{blog.postedBy.username}}</td>
+				<td>{{blog.postedOn | date : 'medium'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>
+	 	
+</body>
+</html>
