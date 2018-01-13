@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+<table class="table table-responsive"  height="80px" width="100px" >
+
+<tr>
+<th>Username</th>
+<th>Profile Pic</th>
+<th>Accept</th>
+<th>Deny</th>
+</tr>
+
+<tr ng-repeat="p in pendingRequest">
+<td><a href=#/getUserDetails/{{p.fromid}}>{{p.fromid}}</a></td>
+<td> <img src="http://localhost:8085/ProjectMiddleware/getimage/{{currentUser.username}}"
+						width=20px; height=20px; alt="Error on loading"></td>
+<td><a href="" ng-click="updatePendingRequest(p,'A')" class="btn btn-success">Accept</a></td>
+<td><a href="" ng-click="updatePendingRequest(p,'D')" class="btn btn-danger">Deny</a></td>
+</tr>
+
+</table>
+</div>
+
+</body>
+</html>
