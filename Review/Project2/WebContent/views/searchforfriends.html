@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {
+    /* The image used */
+    background-image: url(" http://www.ohchr.org/SiteCollectionImages/Bodies/CERD/joinedhands.jpg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*button{
+color:;
+background-color: #ffff4d;
+}  */
+
+</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<table class="table table-responsive" height="50px" width="1200px">
+
+			<tr>
+				<th>Username</th>
+				<th>Profile Picture</th>
+				<th>E-mail</th>
+				<th>Online</th>
+				<th>Role</th>
+				<th>Friend Request</th>
+			</tr>
+
+			<tr ng-repeat="user in listofusers">
+				<td>{{user.username}}</td>
+				<td><img src="http://localhost:8085/ProjectMiddleware/getimage/{{user.username}}"
+						width=50px; height=50px; alt="Error on loading"></td>
+				<td>{{user.email}}</td>
+				<td ng-if="user.online">Yes</td>
+				<td ng-if="!user.online">No</td>
+				<td>{{user.role}}</td>
+				<td><button ng-click="friendRequest(user.username)"
+						type="button" class="btn btn-primary" >Send a
+						Friend Request</button></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

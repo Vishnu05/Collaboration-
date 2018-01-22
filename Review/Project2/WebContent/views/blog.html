@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+<style type="text/css">
+.container {
+	max-width: 750px;
+	background: #FAFAFA;
+	padding: 30px;
+	margin: 100px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 20px;
+	border: 6px solid #305A72;
+}
+
+input[type=text], textarea {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+body {
+	/* The image used */
+	background-image:
+		url("https://thumbs.dreamstime.com/z/dairy-book-9424595.jpg");
+	/* Full height */
+	height: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+</style>
+
+</head>
+<body>
+	<div>
+
+
+		<div class="container">
+			<form name="blogform" novalidate>
+				<div class="col-lg-8 col-md-offset-2">
+					<div>
+						<h1>Adding New Blog</h1>
+						<br> {{error.message}} <label>Enter the Blog Title:</label> <input
+							type="text" required="required" ng-model="blog.blogtitle" name="bf">
+							<span ng-show="blogform.bf.$touched && blogform.bf.$error.required" style=color:red>You can't leave this empty</span>
+					</div>
+					<div>
+						<label>Enter the Blog Content</label><br>
+
+						<textarea rows="15" cols="70" required="required" ng-model="blog.blogcontent" name="bc"></textarea>
+						<span ng-show="blogform.bc.$touched && blogform.bc.$error.required" style=color:red>You can't leave this empty</span>
+					</div>
+					<div></div>
+					<input type="submit" value="addblog" class="btn btn-info"
+						ng-click="saveBlog()" ng-disabled="blogform.$invalid">
+				</div></form>
+		</div>
+	</div>
+</body>
+</html>
