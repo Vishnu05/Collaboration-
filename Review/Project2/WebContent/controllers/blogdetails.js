@@ -19,9 +19,9 @@ app.controller('BlogDetails',function($scope,$location,BlogService,$routeParams)
 	
 	
 	
-/**	$scope.showRejectionTxt=function(val){
+	$scope.showRejectionTxt=function(val){
 		$scope.isRejected=val
-	}  */
+	}  
 	
 	
 	
